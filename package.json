@@ -4,7 +4,7 @@
   "description": "A Backend for learning data structure - YT",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "javascript",
