@@ -4,7 +4,7 @@
   "description": "A Backend for learning data structure - YT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
@@ -12,5 +12,8 @@
     "fullstack"
   ],
   "author": "Harshil Athwani",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }
