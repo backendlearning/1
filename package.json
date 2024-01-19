@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A Backend for learning data structure - YT",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "dev": "nodemon -r dotenv/config src/index.js"
   },
   "keywords": [
     "javascript",
@@ -14,6 +15,12 @@
   "author": "Harshil Athwani",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "prettier": "3.2.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.0"
   }
 }
