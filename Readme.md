@@ -12,6 +12,7 @@ Doing it by following a series first to learn to learn.
 - dotenv
 - cookie-parser
 - multer
+- cloudinary
 - bcrypt
 - jsonwebtoken
 - mongoose-aggregate-paginate-V2
