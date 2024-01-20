@@ -12,6 +12,10 @@ Doing it by following a series first to learn to learn.
 - dotenv
 - cookie-parser
 - multer
+- bcrypt
+- jsonwebtoken
+- mongoose-aggregate-paginate-V2
+-- visit [mongoose](https://www.npmjs.com/package/mongoose-aggregate-paginate-v2) for more info
  ## # created an database connection in secure and intractive way for communicating
 
 ```Javascript
@@ -108,3 +112,4 @@ app.listen(80, function () {
   console.log('CORS-enabled web server listening on port 80')
 })
 ```
+
