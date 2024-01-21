@@ -11,3 +11,5 @@ class ApiResponse {
         //status best practices
     }
 }
+
+export { ApiResponse }
