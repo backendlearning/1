@@ -1,6 +1,6 @@
 import { ApiError } from '../utils/Apierror.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
-import { user } from '../models/user.model.js';
+import { User } from '../models/user.model.js';
 import { uploadCloudinary } from '../utils/fileuplaod-cloudinary.js'
 import { ApiResponse } from '../utils/ApiResponse.js';
 
@@ -41,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
     
     // Checking if user already exists
     // it checks in const { fullname, email, username, password } = req.body; on line 29:
-    const existedUser = user.findOne({
+    const existedUser = await User.findOne({
         $or: [{ username }, { email }],
     });
     // if user found throwing an error with existed api error response
@@ -49,13 +49,17 @@ const registerUser = asyncHandler(async (req, res) => {
     if (existedUser) {
         throw new ApiError(409, 'User with email or username already exists');
     }
+    console.log(req.files);
 
     // taking Images and avater
     // req.files are given by multer taking first property if not get it sends the path associated on multer 
     const avaterLocalPath = req.files?.avatar[0]?.path;
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path;
     //   console.log(avaaterLocalPath)
-
+    let coverImageLocalPath;
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
+            coverImageLocalPath = req.files.coverImage[0].path
+    }
     // checking if I got the user Image and avatar or not
     if (!avaterLocalPath) {
         throw new ApiError(400, 'Avatar file is required');
@@ -71,7 +75,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     // create user object - create entry in db
-        const user = await user.create({
+        const user = await User.create({
         fullname,
         avatar: avatar.url, // Its 100% checked if avatar uploaded
         coverImage: coverImage?.url || "", // it not checked if it empty the db phatega
@@ -81,7 +85,7 @@ const registerUser = asyncHandler(async (req, res) => {
     })
 
     // Check if user created or not 
-    const createdUser = await user.findById(user._id).select(
+    const createdUser = await User.findById(user._id).select(
         "-password -refreshToken"
     )
      

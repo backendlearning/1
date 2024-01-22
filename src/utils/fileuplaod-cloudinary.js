@@ -17,6 +17,7 @@ cloudinary.config({
         console.log(`File is uploaded on Cloudinary`, 
         response.url);
         console.log(`complete details`, response);
+        fs.unlinkSync(localFilePath)
         return response;
     } catch (error) {
         // fs.unlink

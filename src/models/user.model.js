@@ -85,7 +85,7 @@ userSchema.pre("save", async function (next) {
 
     }
 
-export const user = mongoose.model("Users", userSchema)
+export const User = mongoose.model("Users", userSchema)
     // using middleware as prehooks available in mongodb
     //  userSchema.pre("save", async function (next) {
     //     this.password = bcrypt.hash(this.password, 25)
