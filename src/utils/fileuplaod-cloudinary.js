@@ -14,7 +14,8 @@ cloudinary.config({
             resource_type: 'auto'
         })
         // file has been uploaded successfully
-        console.log(`File is uploaded on Cloudinary`, response.url);
+        console.log(`File is uploaded on Cloudinary`, 
+        response.url);
         console.log(`complete details`, response);
         return response;
     } catch (error) {
